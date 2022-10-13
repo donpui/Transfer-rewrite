@@ -46,9 +46,8 @@ jobs:
         run: docker compose --profile e2e build
 
 
-      - name: Setup local packages
-        run: |
-            cd client-e2e && npm i
+      - name: Setup packages
+        run: docker compose --profile e2e run client-e2e npm i
 
       - name: Run UNIT and INTEGRATION tests
         run: |
