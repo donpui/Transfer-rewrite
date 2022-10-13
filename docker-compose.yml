@@ -108,7 +108,6 @@ services:
     volumes:
       - ./client-e2e:/usr/src/app/client-e2e
       - test-downloads:/home/node/downloads
-    cmd: cd client-e2e && npm run wdio
     depends_on:
       client-ci:
         condition: service_started
