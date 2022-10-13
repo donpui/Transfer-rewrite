@@ -102,12 +102,13 @@ services:
     profiles:
       - e2e
   client-e2e:
-    build: ./client-e2e
-    env_file:
-      - ./client-e2e/.env
+    #build: ./client-e2e
+    #env_file:
+    #  - ./client-e2e/.env
     volumes:
-      - ./client-e2e:/usr/src/app/client-e2e
+    #  - ./client-e2e:/usr/src/app/client-e2e
       - test-downloads:/home/node/downloads
+    cmd: cd client-e2e && npm run wdio
     depends_on:
       client-ci:
         condition: service_started
