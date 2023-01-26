@@ -20,7 +20,7 @@ export const config: Options.Testrunner = {
   
   exclude: ["./test/specs/send-large-files.ts",
             ],
-  maxInstances: 1,
+  maxInstances: 3,
   capabilities: [
     {
       browserName: "chrome",
