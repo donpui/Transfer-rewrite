@@ -16,7 +16,6 @@ export const config: Options.Testrunner = {
       project: "test/tsconfig.json",
     },
   },
-  headless: true,
   specs: ["./test/specs/**/*.ts"],
   
   exclude: ["./test/specs/send-large-files.ts",
@@ -27,7 +26,6 @@ export const config: Options.Testrunner = {
       browserName: "chrome",
       acceptInsecureCerts: true,
       "goog:chromeOptions": {
-        args: 'headless',
         prefs: {
           "download.default_directory": global.downloadDirBrowser,
           "download.directory_upgrade": true,
@@ -39,7 +37,6 @@ export const config: Options.Testrunner = {
     {
       browserName: "firefox",
       "moz:firefoxOptions": {
-        args: ['-headless'],
         prefs: {
           "browser.download.dir": global.downloadDirBrowser,
           "browser.download.folderList": 2,

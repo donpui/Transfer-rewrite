@@ -116,6 +116,7 @@ services:
   selenium-hub:
     image: selenium/hub:latest
     container_name: selenium-hub
+    shm_size: 2gb
     ports:
       - "4442:4442"
       - "4443:4443"
