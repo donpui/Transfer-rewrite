@@ -55,8 +55,8 @@ jobs:
           HOST_IP="$IP"
           EOF
           cat <<EOF >> ./client/.env
-          MAILBOX_URL="ws://$IP:4000/v1"
-          RELAY_URL="ws://$IP:4002"
+          MAILBOX_URL="wss://mailbox.stage.mw.leastauthority.com/v1"
+          RELAY_URL="wss://relay.stage.mw.leastauthority.com"
           NODE_ENV=development
           EOF
           printf "Client .env:\n"
