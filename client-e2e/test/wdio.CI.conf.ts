@@ -39,7 +39,7 @@ export const config: Options.Testrunner = {
     {
       browserName: "firefox",
       "moz:firefoxOptions": {
-        args: ['-headless']
+        args: ['-headless'],
         prefs: {
           "browser.download.dir": global.downloadDirBrowser,
           "browser.download.folderList": 2,
