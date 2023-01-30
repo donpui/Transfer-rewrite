@@ -17,8 +17,8 @@ on:
 #    branches: [main]
 
 jobs:
-  if: ${{ false }} 
   deploy:
+    if: ${{ false }} 
     # `if` required because a workflow run is triggered regardless of
     # the result of the previous workflow (see the documentation page)
 #    if: ${{ github.event.workflow_run.conclusion == 'success' }}

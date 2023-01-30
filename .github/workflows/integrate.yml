@@ -80,8 +80,8 @@ jobs:
 
       - name: Run END-2-END tests
         run: |
+          docker compose --profile e2e run client-e2e npm wdio 
           # docker compose --profile e2e run --rm client-e2e 
-          docker compose --profile e2e npm wdio 
-
+          
       - name: Stop the containers
         run: docker compose --profile e2e down

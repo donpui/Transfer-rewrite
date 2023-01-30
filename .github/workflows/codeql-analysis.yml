@@ -22,8 +22,9 @@ on:
     - cron: '26 13 * * 5'
 
 jobs:
-  if: ${{ false }} 
+  
   pre:
+    if: ${{ false }} 
     # Verification to be done before the real check
     name: Pre-check
     runs-on: ubuntu-latest
@@ -38,9 +39,10 @@ jobs:
           paths: '["client/**", "client-e2e/**", ".github/workflows/code-analysis.yml"]'
 
   analyze:
+    if: ${{ false }} 
     name: Analyze
     needs: pre
-    if: needs.pre.outputs.should_skip != 'true'
+    #if: needs.pre.outputs.should_skip != 'true'
     runs-on: ubuntu-latest
     permissions:
       actions: read
