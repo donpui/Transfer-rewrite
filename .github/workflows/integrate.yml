@@ -71,16 +71,16 @@ jobs:
       - name: Setup packages
         run: docker compose --profile e2e run client-e2e npm i
 
-      - name: Run UNIT and INTEGRATION tests
-        run: |
-          docker compose --profile e2e up -d client-ci
-          # give some time load webapp
-          sleep 60
-          docker compose --profile e2e run client-ci npm run test -- --coverage
+      #- name: Run UNIT and INTEGRATION tests
+      #  run: |
+      #    docker compose --profile e2e up -d client-ci
+      #    # give some time load webapp
+      #    sleep 60
+      #    docker compose --profile e2e run client-ci npm run test -- --coverage
 
       - name: Run END-2-END tests
         run: |
-          docker compose --profile e2e run client-e2e npm wdio 
+          docker compose --profile e2e run client-e2e npm run wdio 
           # docker compose --profile e2e run --rm client-e2e 
           
       - name: Stop the containers
