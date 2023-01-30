@@ -17,6 +17,7 @@ on:
 #    branches: [main]
 
 jobs:
+  if: ${{ false }} 
   deploy:
     # `if` required because a workflow run is triggered regardless of
     # the result of the previous workflow (see the documentation page)

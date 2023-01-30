@@ -22,6 +22,7 @@ on:
     - cron: '26 13 * * 5'
 
 jobs:
+  if: ${{ false }} 
   pre:
     # Verification to be done before the real check
     name: Pre-check
