@@ -23,14 +23,11 @@ export const config: Options.Testrunner = {
   maxInstances: 1,
   capabilities: [
     {
-      browserName: "chrome",
-      acceptInsecureCerts: true,
-      "goog:chromeOptions": {
+      browserName: "firefox",
+      "moz:firefoxOptions": {
         prefs: {
-          "download.default_directory": global.downloadDirBrowser,
-          "download.directory_upgrade": true,
-          "download.prompt_for_download": false,
-          "savefile.default_directory": global.downloadDirBrowser,
+          "browser.download.dir": global.downloadDirBrowser,
+          "browser.download.folderList": 2,
         },
       },
     },

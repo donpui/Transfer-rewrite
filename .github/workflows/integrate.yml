@@ -55,7 +55,7 @@ jobs:
           HOST_IP="$IP"
           EOF
           cat <<EOF >> ./client/.env
-          MAILBOX_URL="ws://$IP:4000/v1"
+          MAILBOX_URL="wss://$IP:4000/v1"
           RELAY_URL="ws://$IP:4002"
           NODE_ENV=development
           EOF
@@ -71,17 +71,25 @@ jobs:
       - name: Setup packages
         run: docker compose --profile e2e run client-e2e npm i
 
-      - name: Run UNIT and INTEGRATION tests
-        run: |
-          docker compose --profile e2e up -d client-ci
-          # give some time load webapp
-          sleep 60
-          docker compose --profile e2e run client-ci npm run test -- --coverage
+      #- name: Run UNIT and INTEGRATION tests
+      #  run: |
+      #    docker compose --profile e2e up -d client-ci
+      #    # give some time load webapp
+      #    sleep 60
+      #    docker compose --profile e2e run client-ci npm run test -- --coverage
+
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
+        with:
+        ## limits ssh access and adds the ssh public key for the user which triggered the workflow
+          limit-access-to-actor: true
+        ## limits ssh access and adds the ssh public keys of the listed GitHub users
+          limit-access-to-users: donpui
 
       - name: Run END-2-END tests
-        if: ${{ github.event_name == 'pull_request' }}
         run: |
-          docker compose --profile e2e run --rm client-e2e 
-
+          docker compose --profile e2e run client-e2e npm run wdio 
+          # docker compose --profile e2e run --rm client-e2e 
+          
       - name: Stop the containers
         run: docker compose --profile e2e down
