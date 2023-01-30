@@ -13,5 +13,7 @@
     },
     "scripts": {
         "wdio": "wdio run test/wdio.CI.conf.ts"
+        "wdio-firefox": "wdio run test/wdio.firefox.conf.ts"
+        "wdio-edge": "wdio run test/wdio.edge.conf.ts"
     }
 }

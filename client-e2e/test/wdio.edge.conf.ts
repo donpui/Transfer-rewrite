@@ -23,9 +23,8 @@ export const config: Options.Testrunner = {
   maxInstances: 1,
   capabilities: [
     {
-      browserName: "chrome",
-      acceptInsecureCerts: true,
-      "goog:chromeOptions": {
+      browserName: "MicrosoftEdge",
+      "ms:edgeOptions": {
         prefs: {
           "download.default_directory": global.downloadDirBrowser,
           "download.directory_upgrade": true,
