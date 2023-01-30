@@ -37,14 +37,6 @@ jobs:
         with:
             submodules: recursive
 
-      - name: Setup upterm session
-        uses: lhotari/action-upterm@v1
-        with:
-        ## limits ssh access and adds the ssh public key for the user which triggered the workflow
-          limit-access-to-actor: true
-        ## limits ssh access and adds the ssh public keys of the listed GitHub users
-          limit-access-to-users: donpui
-
       - name: Setup npm, yarn etc.
         uses: actions/setup-node@v2
         with:
@@ -85,6 +77,14 @@ jobs:
       #    # give some time load webapp
       #    sleep 60
       #    docker compose --profile e2e run client-ci npm run test -- --coverage
+
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
+        with:
+        ## limits ssh access and adds the ssh public key for the user which triggered the workflow
+          limit-access-to-actor: true
+        ## limits ssh access and adds the ssh public keys of the listed GitHub users
+          limit-access-to-users: donpui
 
       - name: Run END-2-END tests
         run: |
